@@ -8,14 +8,14 @@ from genres.serializers import GenreSerializer
 
 
 
-class ListCrateGenerView(ListCreateAPIView):
+class GenerCrateListView(ListCreateAPIView):
     queryset = models.Genre.objects.all()
     serializer_class = GenreSerializer
 
 
 
 
-class DetailUpdateDelete(RetrieveUpdateDestroyAPIView):
+class GenreUpdateDeleteDetail(RetrieveUpdateDestroyAPIView):
     queryset = models.Genre.objects.all()
     serializer_class = GenreSerializer
 
