@@ -6,5 +6,5 @@ from reviews.models import Review
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('id', 'stars','comment', 'date_released_comment')
+    list_display = ('id', 'stars','comment','movie_id' ,'date_released_comment')
 
