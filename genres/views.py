@@ -5,10 +5,14 @@ from django.views.decorators.csrf import csrf_exempt
 from genres import models
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from genres.serializers import GenreSerializer
+from rest_framework.permissions import IsAuthenticated
+from app.permissions import GlobalDefaultPermission
+
 
 
 
 class GenerCrateListView(ListCreateAPIView):
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = models.Genre.objects.all()
     serializer_class = GenreSerializer
 
@@ -16,6 +20,7 @@ class GenerCrateListView(ListCreateAPIView):
 
 
 class GenreUpdateDeleteDetail(RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = models.Genre.objects.all()
     serializer_class = GenreSerializer
 
